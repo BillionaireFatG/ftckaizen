@@ -242,17 +242,10 @@ const glossary: Record<string, string> = {
   "machining": "Cutting or shaping parts using tools like mills, lathes, drills.",
   "prototype": "An early version of a design used for testing before making the final version.",
   
-  // Electronics & Power
+  // Motor Types & Additional Terms
   "brushless": "A type of motor with electronic commutation instead of physical brushes. More efficient and powerful than brushed motors.",
   "brushed motor": "Traditional motor design with physical carbon brushes. Simpler but less efficient than brushless.",
   "redundancy": "Having backup systems so if one component fails, others can keep working. Important for reliability in competition.",
-  "circuit breaker": "Safety device that cuts power if too much current flows. Prevents wire fires and damage.",
-  "PWM": "Pulse Width Modulation: A way to control motor speed by rapidly switching power on and off.",
-  "duty cycle": "In PWM, the percentage of time the signal is 'on'. Higher duty cycle = more power to motor.",
-  "wiring": "Electrical connections that carry power and signals throughout the robot.",
-  "connector": "A device that joins electrical wires and allows them to be disconnected.",
-  "fuse": "A safety device that melts if too much current flows, breaking the circuit.",
-  "short circuit": "An unwanted low-resistance connection that can cause fires. Always check your wiring!",
 }
 
 interface TermTooltipProps {
