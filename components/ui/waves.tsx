@@ -136,6 +136,7 @@ export function Waves({
             path.setAttribute('fill', 'none')
             path.setAttribute('stroke', strokeColor)
             path.setAttribute('stroke-width', '1')
+            path.setAttribute('stroke-opacity', '0.25')
 
             svgRef.current.appendChild(path)
             pathsRef.current.push(path)
