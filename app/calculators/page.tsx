@@ -1,29 +1,44 @@
+"use client"
+
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calculator, Gauge, Zap, Cog, ArrowRight } from "lucide-react";
+import { TermTooltip } from "@/components/ui/term-tooltip";
 
 const calculators = [
   {
     name: "Speed Calculator",
     href: "/calculators/speed",
     icon: Gauge,
-    description: "Calculate your robot's maximum speed based on motor RPM, wheel diameter, and gear ratio.",
-    features: ["Max speed in multiple units", "Time to cross field", "Gear ratio recommendations"],
+    description: <>Calculate your robot's maximum speed based on motor <TermTooltip term="RPM">RPM</TermTooltip>, wheel diameter, and <TermTooltip term="gear ratio">gear ratio</TermTooltip>.</>,
+    features: [
+      <>Max speed in multiple units</>,
+      <>Time to cross field</>,
+      <><TermTooltip term="gear ratio">Gear ratio</TermTooltip> recommendations</>
+    ],
   },
   {
     name: "Torque Calculator",
     href: "/calculators/torque",
     icon: Zap,
-    description: "Determine wheel torque, pushing force, and acceleration based on motor specs.",
-    features: ["Wheel torque calculation", "Pushing force estimate", "Acceleration prediction"],
+    description: <>Determine wheel <TermTooltip term="torque">torque</TermTooltip>, pushing force, and <TermTooltip term="acceleration">acceleration</TermTooltip> based on motor specs.</>,
+    features: [
+      <>Wheel <TermTooltip term="torque">torque</TermTooltip> calculation</>,
+      <>Pushing force estimate</>,
+      <><TermTooltip term="acceleration">Acceleration</TermTooltip> prediction</>
+    ],
   },
   {
     name: "Gear Ratio Calculator",
     href: "/calculators/gear-ratio",
     icon: Cog,
-    description: "Find optimal gear ratios for your desired speed and torque requirements.",
-    features: ["Speed vs torque tradeoff", "Optimal ratio finder", "Multiple gear options"],
+    description: <>Find optimal <TermTooltip term="gear ratio">gear ratios</TermTooltip> for your desired speed and <TermTooltip term="torque">torque</TermTooltip> requirements.</>,
+    features: [
+      <>Speed vs <TermTooltip term="torque">torque</TermTooltip> tradeoff</>,
+      <>Optimal ratio finder</>,
+      <>Multiple gear options</>
+    ],
   },
 ];
 

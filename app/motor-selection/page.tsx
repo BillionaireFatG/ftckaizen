@@ -1,4 +1,7 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TermTooltip } from "@/components/ui/term-tooltip";
 
 const motors = [
   {
@@ -111,8 +114,8 @@ export default function MotorSelectionPage() {
           <div>
             <h4 className="font-semibold mb-2">Consider these factors:</h4>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Speed vs Torque:</strong> High RPM = fast but weak, Low RPM = slow but strong</li>
-              <li><strong>Current Draw:</strong> More current = faster battery drain, ensure your system can handle it</li>
+              <li><strong>Speed vs <TermTooltip term="torque">Torque</TermTooltip>:</strong> High <TermTooltip term="RPM">RPM</TermTooltip> = fast but weak, Low <TermTooltip term="RPM">RPM</TermTooltip> = slow but strong</li>
+              <li><strong><TermTooltip term="current">Current</TermTooltip> Draw:</strong> More <TermTooltip term="current">current</TermTooltip> = faster <TermTooltip term="battery">battery</TermTooltip> drain, ensure your system can handle it</li>
               <li><strong>Weight:</strong> Heavier motors affect robot agility and center of gravity</li>
               <li><strong>Budget:</strong> Balance performance with cost constraints</li>
               <li><strong>Competition Legality:</strong> Verify motor is allowed in your league (FTC/FRC/FLL)</li>
@@ -144,15 +147,15 @@ export default function MotorSelectionPage() {
               <CardContent>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
                   <div>
-                    <div className="text-muted-foreground">Free Speed</div>
-                    <div className="font-bold">{motor.rpm} RPM</div>
+                    <div className="text-muted-foreground"><TermTooltip term="free speed">Free Speed</TermTooltip></div>
+                    <div className="font-bold">{motor.rpm} <TermTooltip term="RPM">RPM</TermTooltip></div>
                   </div>
                   <div>
-                    <div className="text-muted-foreground">Stall Torque</div>
+                    <div className="text-muted-foreground"><TermTooltip term="stall torque">Stall Torque</TermTooltip></div>
                     <div className="font-bold">{motor.stallTorque} Nm</div>
                   </div>
                   <div>
-                    <div className="text-muted-foreground">Stall Current</div>
+                    <div className="text-muted-foreground">Stall <TermTooltip term="current">Current</TermTooltip></div>
                     <div className="font-bold">{motor.stallCurrent} A</div>
                   </div>
                   <div>
