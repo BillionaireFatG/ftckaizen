@@ -80,6 +80,65 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Credits Section */}
+      <section className="border-t py-16 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-center mb-8">Built on Championship Knowledge</h3>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="p-6 rounded-lg border bg-card">
+                <h4 className="font-semibold text-lg mb-2 text-primary">Primary Sources</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <strong className="text-foreground">Practical Guide to Robotics</strong>
+                    <br />by Phoebe Xu & Grace Yu (Entradox Robotics, 2021)
+                  </li>
+                  <li>
+                    <strong className="text-foreground">CTRL ALT FTC</strong>
+                    <br />Control Theory Resources & Documentation
+                  </li>
+                  <li>
+                    <strong className="text-foreground">FIRST Tech Challenge</strong>
+                    <br />Official Game Manuals & Technical Resources
+                  </li>
+                </ul>
+              </div>
+
+              <div className="p-6 rounded-lg border bg-card">
+                <h4 className="font-semibold text-lg mb-2 text-primary">Community & Resources</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <strong className="text-foreground">FTC Kaizen</strong>
+                    <br />Continuous improvement & learning platform
+                  </li>
+                  <li>
+                    <strong className="text-foreground">REV Robotics</strong>
+                    <br />Technical documentation & specifications
+                  </li>
+                  <li>
+                    <strong className="text-foreground">Chief Delphi & FTC Forums</strong>
+                    <br />Community knowledge & best practices
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">
+                Made with 💜 for the FIRST community • 
+                <Link href="/resources" className="ml-1 text-primary hover:underline">
+                  View all credits & resources
+                </Link>
+              </p>
+              <p className="text-xs text-muted-foreground mt-2">
+                This guide is provided for educational purposes. All trademarks and registered marks are properties of their respective owners.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
