@@ -1,7 +1,10 @@
+"use client"
+
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Cpu, TrendingUp, Activity } from "lucide-react";
+import { TermTooltip } from "@/components/ui/term-tooltip";
 
 const topics = [
   {
@@ -52,10 +55,10 @@ export default function ControlTheoryPage() {
             <li><strong>Battery voltage changes:</strong> Motors slow down as battery drains</li>
             <li><strong>Opponents interfere:</strong> Collisions push your robot off course</li>
             <li><strong>Field conditions vary:</strong> Different surfaces, game elements</li>
-            <li><strong>Precision is critical:</strong> Autonomous scoring, accurate positioning</li>
+            <li><strong>Precision is critical:</strong> <TermTooltip term="autonomous">Autonomous</TermTooltip> scoring, accurate positioning</li>
           </ul>
           <p className="font-semibold mt-4">
-            Closed-loop control systems use feedback to continuously correct errors and maintain consistent performance.
+            Closed-loop control systems use <TermTooltip term="feedforward">feedback</TermTooltip> to continuously correct errors and maintain consistent performance.
           </p>
         </CardContent>
       </Card>

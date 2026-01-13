@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { AICoach } from "@/components/layout/AICoach";
+import { GlobalBackground } from "@/components/layout/GlobalBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,10 +28,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* Global animated background on all pages */}
+          <GlobalBackground />
+          
           <Navbar />
           <div className="flex">
             <Sidebar />
-            <main className="flex-1 lg:ml-64">
+            <main className="flex-1 lg:ml-64 relative z-10">
               {children}
             </main>
           </div>

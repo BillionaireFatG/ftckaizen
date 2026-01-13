@@ -1,53 +1,89 @@
+"use client"
+
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { TermTooltip } from "@/components/ui/term-tooltip";
 
 const drivetrains = [
   {
     name: "Tank Drive",
     href: "/drivetrains/tank",
-    description: "The simplest and most robust drivetrain. Perfect for beginners and high-pushing-power applications.",
+    description: <>The simplest and most robust <TermTooltip term="drivetrain">drivetrain</TermTooltip>. Perfect for beginners and high-pushing-power applications.</>,
     complexity: 1,
     cost: 1,
     maneuverability: 2,
     speed: 4,
-    pros: ["Simple to build", "High torque", "Predictable", "Low cost"],
-    cons: ["Cannot strafe", "Limited maneuverability", "Turning radius"],
+    pros: [
+      <>Simple to build</>,
+      <><TermTooltip term="torque">High torque</TermTooltip></>,
+      <>Predictable</>,
+      <>Low cost</>
+    ],
+    cons: [
+      <>Cannot strafe</>,
+      <>Limited maneuverability</>,
+      <>Turning radius</>
+    ],
   },
   {
     name: "Mecanum Drive",
     href: "/drivetrains/mecanum",
-    description: "Holonomic drive with omnidirectional movement. Move in any direction without rotating.",
+    description: <><TermTooltip term="holonomic">Holonomic</TermTooltip> drive with omnidirectional movement. Move in any direction without rotating.</>,
     complexity: 3,
     cost: 3,
     maneuverability: 5,
     speed: 3,
-    pros: ["Omnidirectional movement", "No turning needed", "Precise positioning"],
-    cons: ["Reduced traction", "More complex code", "Expensive wheels"],
+    pros: [
+      <>Omnidirectional movement</>,
+      <>No turning needed</>,
+      <>Precise positioning</>
+    ],
+    cons: [
+      <><TermTooltip term="traction">Reduced traction</TermTooltip></>,
+      <>More complex code</>,
+      <>Expensive wheels</>
+    ],
   },
   {
     name: "Swerve Drive",
     href: "/drivetrains/swerve",
-    description: "The ultimate in maneuverability. Independent steering for each wheel module.",
+    description: <>The ultimate in maneuverability. Independent steering for each wheel module.</>,
     complexity: 5,
     cost: 5,
     maneuverability: 5,
     speed: 5,
-    pros: ["Maximum maneuverability", "Fastest option", "Field-centric control"],
-    cons: ["Very complex", "Expensive", "Difficult programming"],
+    pros: [
+      <>Maximum maneuverability</>,
+      <>Fastest option</>,
+      <>Field-centric control</>
+    ],
+    cons: [
+      <>Very complex</>,
+      <>Expensive</>,
+      <>Difficult programming</>
+    ],
   },
   {
     name: "Omni Drive",
     href: "/drivetrains/omni",
-    description: "Similar to mecanum but with different wheel orientation. Faster with less traction.",
+    description: <>Similar to <TermTooltip term="mecanum">mecanum</TermTooltip> but with different wheel orientation. Faster with less <TermTooltip term="traction">traction</TermTooltip>.</>,
     complexity: 3,
     cost: 2,
     maneuverability: 4,
     speed: 5,
-    pros: ["Fast movement", "Simpler than mecanum", "Good maneuverability"],
-    cons: ["Less traction", "Wheel wear", "Slippage in turns"],
+    pros: [
+      <>Fast movement</>,
+      <>Simpler than mecanum</>,
+      <>Good maneuverability</>
+    ],
+    cons: [
+      <>Less traction</>,
+      <>Wheel wear</>,
+      <>Slippage in turns</>
+    ],
   },
 ];
 
@@ -121,13 +157,13 @@ export default function DrivetrainsPage() {
         <h2 className="mb-4 text-2xl font-bold">How to Choose?</h2>
         <div className="space-y-3 text-muted-foreground">
           <p>
-            <strong className="text-foreground">Tank Drive:</strong> Best for beginners, pushing-heavy games, and simple autonomous routines.
+            <strong className="text-foreground">Tank Drive:</strong> Best for beginners, pushing-heavy games, and simple <TermTooltip term="autonomous">autonomous</TermTooltip> routines.
           </p>
           <p>
-            <strong className="text-foreground">Mecanum Drive:</strong> Ideal for games requiring precise positioning and quick repositioning without turning.
+            <strong className="text-foreground"><TermTooltip term="mecanum">Mecanum Drive</TermTooltip>:</strong> Ideal for games requiring precise positioning and quick repositioning without turning.
           </p>
           <p>
-            <strong className="text-foreground">Swerve Drive:</strong> For advanced teams with resources, time, and need for maximum performance.
+            <strong className="text-foreground"><TermTooltip term="swerve">Swerve Drive</TermTooltip>:</strong> For advanced teams with resources, time, and need for maximum performance.
           </p>
           <p>
             <strong className="text-foreground">Omni Drive:</strong> Good balance between speed and maneuverability for fast-paced games.
