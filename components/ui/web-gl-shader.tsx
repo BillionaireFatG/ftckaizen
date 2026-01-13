@@ -51,9 +51,9 @@ export function WebGLShader() {
         float gx = p.x;
         float bx = p.x * (1.0 - d);
 
-        float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);
-        float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
-        float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
+        float r = 0.1 / abs(p.y + sin((rx + time) * xScale) * yScale);
+        float g = 0.1 / abs(p.y + sin((gx + time) * xScale) * yScale);
+        float b = 0.1 / abs(p.y + sin((bx + time) * xScale) * yScale);
         
         gl_FragColor = vec4(r, g, b, 1.0);
       }
@@ -71,8 +71,8 @@ export function WebGLShader() {
         resolution: { value: [window.innerWidth, window.innerHeight] },
         time: { value: 0.0 },
         xScale: { value: 1.0 },
-        yScale: { value: 0.5 },
-        distortion: { value: 0.05 },
+        yScale: { value: 0.3 },
+        distortion: { value: 0.1 },
       }
 
       const position = [
@@ -139,7 +139,7 @@ export function WebGLShader() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-40"
+      className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-20 dark:opacity-30"
     />
   )
 }
