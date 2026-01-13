@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Waves } from "@/components/ui/waves";
-import { WavesWrapper } from "@/components/ui/waves-wrapper";
+import { HeroWaves } from "@/components/landing/HeroWaves";
 import { FeatureCards } from "@/components/landing/FeatureCards";
 
 export default function Home() {
@@ -10,17 +9,8 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section with Animated Waves Background */}
       <section className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden px-6 py-24">
-        {/* Animated Waves Background - LIGHT MODE */}
-        <Waves 
-          className="absolute inset-0 dark:hidden" 
-          strokeColor="rgba(85, 80, 255, 0.35)"
-          backgroundColor="transparent"
-          pointerSize={0.6}
-        />
-        {/* Animated Waves Background - DARK MODE */}
-        <div className="absolute inset-0 dark:block hidden">
-          <WavesWrapper />
-        </div>
+        {/* Animated Waves Background - Refreshes on theme change */}
+        <HeroWaves />
         <div className="relative z-10 mx-auto max-w-4xl text-center">
           <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
             Master Your Robot's{" "}
