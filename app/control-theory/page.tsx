@@ -3,14 +3,17 @@
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Cpu, TrendingUp, Activity } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { TermTooltip } from "@/components/ui/term-tooltip";
+import { PIDIcon } from "@/components/icons/PIDIcon";
+import { FeedforwardIcon } from "@/components/icons/FeedforwardIcon";
+import { MotionProfileIcon } from "@/components/icons/MotionProfileIcon";
 
 const topics = [
   {
     name: "PID Controller",
     href: "/control-theory/pid",
-    icon: Activity,
+    icon: PIDIcon,
     description: <><TermTooltip term="proportional">Proportional</TermTooltip>-<TermTooltip term="integral">Integral</TermTooltip>-<TermTooltip term="derivative">Derivative</TermTooltip> control for precise robot movements and <TermTooltip term="error">error</TermTooltip> correction.</>,
     difficulty: "Intermediate",
     concepts: [
@@ -23,7 +26,7 @@ const topics = [
   {
     name: "Feedforward Control",
     href: "/control-theory/feedforward",
-    icon: TrendingUp,
+    icon: FeedforwardIcon,
     description: <>Model-based control that predicts required power based on physics equations.</>,
     difficulty: "Advanced",
     concepts: [
@@ -36,7 +39,7 @@ const topics = [
   {
     name: "Motion Profiling",
     href: "/control-theory/motion-profiling",
-    icon: Cpu,
+    icon: MotionProfileIcon,
     description: <>Generate smooth, controlled paths with <TermTooltip term="velocity">velocity</TermTooltip> and <TermTooltip term="acceleration">acceleration</TermTooltip> constraints.</>,
     difficulty: "Advanced",
     concepts: [
@@ -79,16 +82,24 @@ export default function ControlTheoryPage() {
       </Card>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {topics.map((topic) => (
-          <Card key={topic.name} className="transition-all hover:shadow-lg">
-            <CardHeader>
-              <topic.icon className="mb-4 h-12 w-12 text-primary" />
-              <CardTitle>{topic.name}</CardTitle>
-              <CardDescription>{topic.description}</CardDescription>
-              <div className="mt-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold">
-                {topic.difficulty}
-              </div>
-            </CardHeader>
+        {topics.map((topic) => {
+          const Icon = topic.icon;
+          return (
+            <Card key={topic.name} className="transition-all hover:shadow-lg">
+              <CardHeader>
+                {/* Custom Icon */}
+                <div className="mb-4 flex justify-center">
+                  <div className="h-32 w-32 text-primary">
+                    <Icon className="h-full w-full" />
+                  </div>
+                </div>
+                
+                <CardTitle>{topic.name}</CardTitle>
+                <CardDescription>{topic.description}</CardDescription>
+                <div className="mt-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold">
+                  {topic.difficulty}
+                </div>
+              </CardHeader>
             <CardContent>
               <h4 className="mb-2 text-sm font-semibold">Key Concepts:</h4>
               <ul className="mb-4 space-y-1 text-sm">
@@ -107,7 +118,8 @@ export default function ControlTheoryPage() {
               </Link>
             </CardContent>
           </Card>
-        ))}
+          );
+        })}
       </div>
 
       <Card className="mt-12">

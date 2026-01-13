@@ -3,14 +3,17 @@
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, Gauge, Zap, Cog, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { TermTooltip } from "@/components/ui/term-tooltip";
+import { SpeedIcon } from "@/components/icons/SpeedIcon";
+import { TorqueIcon } from "@/components/icons/TorqueIcon";
+import { GearIcon } from "@/components/icons/GearIcon";
 
 const calculators = [
   {
     name: "Speed Calculator",
     href: "/calculators/speed",
-    icon: Gauge,
+    icon: SpeedIcon,
     description: <>Calculate your robot's maximum speed based on motor <TermTooltip term="RPM">RPM</TermTooltip>, wheel diameter, and <TermTooltip term="gear ratio">gear ratio</TermTooltip>.</>,
     features: [
       <>Max speed in multiple units</>,
@@ -21,7 +24,7 @@ const calculators = [
   {
     name: "Torque Calculator",
     href: "/calculators/torque",
-    icon: Zap,
+    icon: TorqueIcon,
     description: <>Determine wheel <TermTooltip term="torque">torque</TermTooltip>, pushing force, and <TermTooltip term="acceleration">acceleration</TermTooltip> based on motor specs.</>,
     features: [
       <>Wheel <TermTooltip term="torque">torque</TermTooltip> calculation</>,
@@ -32,7 +35,7 @@ const calculators = [
   {
     name: "Gear Ratio Calculator",
     href: "/calculators/gear-ratio",
-    icon: Cog,
+    icon: GearIcon,
     description: <>Find optimal <TermTooltip term="gear ratio">gear ratios</TermTooltip> for your desired speed and <TermTooltip term="torque">torque</TermTooltip> requirements.</>,
     features: [
       <>Speed vs <TermTooltip term="torque">torque</TermTooltip> tradeoff</>,
@@ -53,13 +56,21 @@ export default function CalculatorsPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {calculators.map((calc) => (
-          <Card key={calc.name} className="transition-all hover:shadow-lg">
-            <CardHeader>
-              <calc.icon className="mb-4 h-12 w-12 text-primary" />
-              <CardTitle>{calc.name}</CardTitle>
-              <CardDescription>{calc.description}</CardDescription>
-            </CardHeader>
+        {calculators.map((calc) => {
+          const Icon = calc.icon;
+          return (
+            <Card key={calc.name} className="transition-all hover:shadow-lg">
+              <CardHeader>
+                {/* Custom Calculator Icon */}
+                <div className="mb-4 flex justify-center">
+                  <div className="h-32 w-32 text-primary">
+                    <Icon className="h-full w-full" />
+                  </div>
+                </div>
+                
+                <CardTitle>{calc.name}</CardTitle>
+                <CardDescription>{calc.description}</CardDescription>
+              </CardHeader>
             <CardContent>
               <ul className="mb-4 space-y-2 text-sm">
                 {calc.features.map((feature, index) => (
@@ -77,7 +88,8 @@ export default function CalculatorsPage() {
               </Link>
             </CardContent>
           </Card>
-        ))}
+          );
+        })}
       </div>
 
       <Card className="mt-12">

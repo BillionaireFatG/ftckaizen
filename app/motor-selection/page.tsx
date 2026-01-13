@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TermTooltip } from "@/components/ui/term-tooltip";
+import { MotorIcon } from "@/components/icons/MotorIcon";
 
 const motors = [
   {
@@ -99,11 +100,16 @@ const motors = [
 export default function MotorSelectionPage() {
   return (
     <div className="container mx-auto px-6 py-12">
-      <div className="mb-12">
-        <h1 className="mb-4 text-4xl font-bold">Motor Selection Guide</h1>
-        <p className="text-lg text-muted-foreground">
-          Compare motors and choose the best option for your robot
-        </p>
+      <div className="mb-12 flex items-center gap-6">
+        <div className="h-24 w-24 text-primary flex-shrink-0">
+          <MotorIcon className="h-full w-full" />
+        </div>
+        <div>
+          <h1 className="mb-4 text-4xl font-bold">Motor Selection Guide</h1>
+          <p className="text-lg text-muted-foreground">
+            Compare motors and choose the best option for your robot
+          </p>
+        </div>
       </div>
 
       <Card className="mb-8">
