@@ -6,11 +6,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { TermTooltip } from "@/components/ui/term-tooltip";
+import { TankDriveIcon } from "@/components/drivetrains/TankDriveIcon";
+import { MecanumDriveIcon } from "@/components/drivetrains/MecanumDriveIcon";
+import { SwerveDriveIcon } from "@/components/drivetrains/SwerveDriveIcon";
+import { OmniDriveIcon } from "@/components/drivetrains/OmniDriveIcon";
 
 const drivetrains = [
   {
     name: "Tank Drive",
     href: "/drivetrains/tank",
+    icon: TankDriveIcon,
     description: <>The simplest and most robust <TermTooltip term="drivetrain">drivetrain</TermTooltip>. Perfect for beginners and high-pushing-power applications.</>,
     complexity: 1,
     cost: 1,
@@ -31,6 +36,7 @@ const drivetrains = [
   {
     name: "Mecanum Drive",
     href: "/drivetrains/mecanum",
+    icon: MecanumDriveIcon,
     description: <><TermTooltip term="holonomic">Holonomic</TermTooltip> drive with omnidirectional movement. Move in any direction without rotating.</>,
     complexity: 3,
     cost: 3,
@@ -50,6 +56,7 @@ const drivetrains = [
   {
     name: "Swerve Drive",
     href: "/drivetrains/swerve",
+    icon: SwerveDriveIcon,
     description: <>The ultimate in maneuverability. Independent steering for each wheel module.</>,
     complexity: 5,
     cost: 5,
@@ -69,6 +76,7 @@ const drivetrains = [
   {
     name: "Omni Drive",
     href: "/drivetrains/omni",
+    icon: OmniDriveIcon,
     description: <>Similar to <TermTooltip term="mecanum">mecanum</TermTooltip> but with different wheel orientation. Faster with less <TermTooltip term="traction">traction</TermTooltip>.</>,
     complexity: 3,
     cost: 2,
@@ -102,21 +110,30 @@ export default function DrivetrainsPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {drivetrains.map((drivetrain) => (
-          <Card key={drivetrain.name} className="transition-all hover:shadow-lg">
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div>
-                  <CardTitle className="text-2xl">{drivetrain.name}</CardTitle>
-                  <CardDescription className="mt-2">{drivetrain.description}</CardDescription>
+        {drivetrains.map((drivetrain) => {
+          const Icon = drivetrain.icon;
+          return (
+            <Card key={drivetrain.name} className="transition-all hover:shadow-lg">
+              <CardHeader>
+                {/* Drivetrain Icon */}
+                <div className="mb-4 flex justify-center">
+                  <div className="h-40 w-40 text-primary">
+                    <Icon className="h-full w-full" />
+                  </div>
                 </div>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <Badge variant="outline">Complexity: {getRatingStars(drivetrain.complexity)}</Badge>
-                <Badge variant="outline">Cost: {"$".repeat(drivetrain.cost)}</Badge>
-                <Badge variant="outline">Speed: {getRatingStars(drivetrain.speed)}</Badge>
-              </div>
-            </CardHeader>
+                
+                <div className="flex items-start justify-between">
+                  <div>
+                    <CardTitle className="text-2xl">{drivetrain.name}</CardTitle>
+                    <CardDescription className="mt-2">{drivetrain.description}</CardDescription>
+                  </div>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Badge variant="outline">Complexity: {getRatingStars(drivetrain.complexity)}</Badge>
+                  <Badge variant="outline">Cost: {"$".repeat(drivetrain.cost)}</Badge>
+                  <Badge variant="outline">Speed: {getRatingStars(drivetrain.speed)}</Badge>
+                </div>
+              </CardHeader>
             <CardContent>
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
@@ -150,7 +167,8 @@ export default function DrivetrainsPage() {
               </Link>
             </CardContent>
           </Card>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-12 rounded-lg border bg-card p-6">
